@@ -1,17 +1,21 @@
 function firstNonRepeatedChar(str) {
  // Write your code here
 	let counter = {};
-	for(int i = 0; i<str.length; i++){
-		if(str[i] in counter){
-			counter.str[i]++;
+	// counter.str[0] = 1;
+	for(let i = 0; i<str.length; i++){
+		// console.log(counter, i);
+		let key = str[i];
+		if(key in counter){
+			counter[key] = counter[key] + 1;
 		}
 		else{
-			counter.str[i] = 1;
+			counter[key] = 1;
 		}
 	}
 	for (let i = 0; i < str.length; i++) {
-		if(counter.str[i] == 1){
-			return str[i];
+		let key = str[i];
+		if(counter[key] == 1){
+			return key;
 		}
 	}
 	return null;
